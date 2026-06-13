@@ -11,6 +11,9 @@
     --panel-bg: rgba(15, 15, 35, 0.95);
     --border-color: rgba(255, 255, 255, 0.1);
 }
+button {
+    max-width: 100%;
+}
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: var(--bg-color);
