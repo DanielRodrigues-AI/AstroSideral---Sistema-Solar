@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
       info: "Planeta mais próximo do Sol, com temperaturas extremas variando de -180°C a 430°C.",
       color: "#b5b5b5",
       orbitSpeed: 4.1,
-      orbitRadius: 70,
+      orbitRadius: 0.167,
     },
     venus: {
       name: "Vênus",
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
       info: "O planeta mais quente do sistema solar, com uma atmosfera densa de dióxido de carbono.",
       color: "#e6c87a",
       orbitSpeed: 1.6,
-      orbitRadius: 100,
+      orbitRadius: 0.238,
     },
     earth: {
       name: "Terra",
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
       info: "Nosso lar, o único planeta conhecido com vida e água líquida em sua superfície.",
       color: "#6b93d6",
       orbitSpeed: 1.0,
-      orbitRadius: 140,
+      orbitRadius: 0.333,
     },
     mars: {
       name: "Marte",
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
       info: "Conhecido como Planeta Vermelho, possui o maior vulcão do sistema solar.",
       color: "#c1440e",
       orbitSpeed: 0.53,
-      orbitRadius: 180,
+      orbitRadius: 0.429,
     },
     jupiter: {
       name: "Júpiter",
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
       info: "O maior planeta do sistema solar, com uma Grande Mancha Vermelha que é uma tempestade gigante.",
       color: "#d8ca9d",
       orbitSpeed: 0.08,
-      orbitRadius: 240,
+      orbitRadius: 0.571,
     },
     saturn: {
       name: "Saturno",
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
       info: "Famoso por seus anéis espetaculares feitos de gelo e rocha.",
       color: "#f4d59e",
       orbitSpeed: 0.05,
-      orbitRadius: 300,
+      orbitRadius: 0.714,
     },
     uranus: {
       name: "Urano",
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
       info: "Gira de lado, com seu eixo inclinado quase 90 graus em relação ao plano orbital.",
       color: "#d1e7e7",
       orbitSpeed: 0.01,
-      orbitRadius: 360,
+      orbitRadius: 0.857,
     },
     neptune: {
       name: "Netuno",
@@ -101,11 +101,42 @@ document.addEventListener("DOMContentLoaded", () => {
       info: "O planeta mais distante do Sol, com ventos que chegam a 2.100 km/h.",
       color: "#5b5ddf",
       orbitSpeed: 0.006,
-      orbitRadius: 420,
+      orbitRadius: 1.0,
     },
   };
   let planetData = [];
   let animationId = null;
+  let universeScale = 1;
+  
+  function calculateUniverseScale() {
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    const minDimension = Math.min(viewportWidth, viewportHeight);
+    universeScale = minDimension * 0.45;
+    return universeScale;
+  }
+  
+  function updateOrbitSizes() {
+    const scale = calculateUniverseScale();
+    planetData.forEach(planet => {
+      planet.scaledOrbitRadius = planet.orbitRadius * scale;
+    });
+    
+    // Update CSS orbit sizes
+    const orbits = document.querySelectorAll('.orbit');
+    const orbitClasses = ['mercury', 'venus', 'earth', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune'];
+    orbitClasses.forEach((orbitClass, index) => {
+      const orbitElement = document.querySelector(`.orbit-${orbitClass}`);
+      if (orbitElement) {
+        const planet = planetData.find(p => p.id === orbitClass);
+        if (planet) {
+          const diameter = planet.scaledOrbitRadius * 2;
+          orbitElement.style.width = `${diameter}px`;
+          orbitElement.style.height = `${diameter}px`;
+        }
+      }
+    });
+  }
   async function fetchAllPlanetsData() {
     try {
       const apiPath = "./data/planets.json";
@@ -150,6 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
         angle: fixedAngles[planet.id] || 0,
       };
     });
+    updateOrbitSizes();
     startPlanetAnimation();
   }
   function startPlanetAnimation() {
@@ -164,8 +196,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!isPaused) {
           planet.angle += planet.orbitSpeed * 0.001 * timeScale;
         }
-        const x = centerX + Math.cos(planet.angle) * planet.orbitRadius;
-        const y = centerY + Math.sin(planet.angle) * planet.orbitRadius;
+        const x = centerX + Math.cos(planet.angle) * planet.scaledOrbitRadius;
+        const y = centerY + Math.sin(planet.angle) * planet.scaledOrbitRadius;
         const planetElement = document.querySelector(`.planet-${planet.id}`);
         if (planetElement) {
           planetElement.style.left = `${x}px`;
@@ -351,10 +383,40 @@ function closePlanetDome() {
       infoPanel.classList.remove("active");
     }
   });
+  
+  // Swipe down to close info panel on mobile
+  let touchStartY = 0;
+  let touchEndY = 0;
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  
+  if (isMobile) {
+    infoPanel.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+    
+    infoPanel.addEventListener('touchmove', (e) => {
+      touchEndY = e.touches[0].clientY;
+      const deltaY = touchEndY - touchStartY;
+      
+      // If swiping down and panel is active
+      if (deltaY > 50 && infoPanel.classList.contains('active')) {
+        infoPanel.classList.remove('active');
+        touchStartY = 0;
+        touchEndY = 0;
+      }
+    }, { passive: true });
+  }
   initializePlanetMovement();
+  
+  // Window resize listener to recalculate universe scale
+  window.addEventListener('resize', () => {
+    updateOrbitSizes();
+  });
+  
   function createStars() {
     const starsContainer = document.querySelector(".stars");
-    const numberOfStars = 100;
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const numberOfStars = isMobile ? 50 : 100;
     for (let i = 0; i < numberOfStars; i++) {
       const star = document.createElement("div");
       star.style.cssText = `

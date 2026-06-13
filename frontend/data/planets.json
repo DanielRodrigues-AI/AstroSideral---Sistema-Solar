@@ -8,7 +8,7 @@
     "info": "Planeta mais próximo do Sol, com temperaturas extremas variando de -180°C a 430°C.",
     "color": "#b5b5b5",
     "orbitSpeed": 4.1,
-    "orbitRadius": 70
+    "orbitRadius": 0.167
   },
   {
     "id": "venus",
@@ -19,7 +19,7 @@
     "info": "O planeta mais quente do sistema solar, com uma atmosfera densa de dióxido de carbono.",
     "color": "#e6c87a",
     "orbitSpeed": 1.6,
-    "orbitRadius": 100
+    "orbitRadius": 0.238
   },
   {
     "id": "earth",
@@ -30,7 +30,7 @@
     "info": "Nosso lar, o único planeta conhecido com vida e água líquida em sua superfície.",
     "color": "#6b93d6",
     "orbitSpeed": 1.0,
-    "orbitRadius": 140
+    "orbitRadius": 0.333
   },
   {
     "id": "mars",
@@ -41,7 +41,7 @@
     "info": "Conhecido como Planeta Vermelho, possui o maior vulcão do sistema solar.",
     "color": "#c1440e",
     "orbitSpeed": 0.53,
-    "orbitRadius": 180
+    "orbitRadius": 0.429
   },
   {
     "id": "jupiter",
@@ -52,7 +52,7 @@
     "info": "O maior planeta do sistema solar, com uma Grande Mancha Vermelha que é uma tempestade gigante.",
     "color": "#d8ca9d",
     "orbitSpeed": 0.08,
-    "orbitRadius": 240
+    "orbitRadius": 0.571
   },
   {
     "id": "saturn",
@@ -63,7 +63,7 @@
     "info": "Famoso por seus anéis espetaculares feitos de gelo e rocha.",
     "color": "#f4d59e",
     "orbitSpeed": 0.05,
-    "orbitRadius": 300
+    "orbitRadius": 0.714
   },
   {
     "id": "uranus",
@@ -74,7 +74,7 @@
     "info": "Gira de lado, com seu eixo inclinado quase 90 graus em relação ao plano orbital.",
     "color": "#d1e7e7",
     "orbitSpeed": 0.01,
-    "orbitRadius": 360
+    "orbitRadius": 0.857
   },
   {
     "id": "neptune",
@@ -85,6 +85,6 @@
     "info": "O planeta mais distante do Sol, com ventos que chegam a 2.100 km/h.",
     "color": "#5b5ddf",
     "orbitSpeed": 0.006,
-    "orbitRadius": 420
+    "orbitRadius": 1.0
   }
 ]

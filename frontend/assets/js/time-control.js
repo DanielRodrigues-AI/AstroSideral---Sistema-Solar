@@ -4,6 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
         timeScale: 1,
         isPaused: false
     };
+    
+    // Mobile detection
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const buttonSize = isMobile ? 48 : 45;
+    const fontSize = isMobile ? 22 : 20;
+    const padding = isMobile ? '20px 30px' : '15px 25px';
+    const gap = isMobile ? 20 : 15;
+    
     function createTimeControlUI() {
         const controlPanel = document.createElement('div');
         controlPanel.id = 'time-control';
@@ -16,10 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 50px;
-            padding: 15px 25px;
+            padding: ${padding};
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: ${gap}px;
             z-index: 1000;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         `;
@@ -27,13 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
         playPauseBtn.id = 'play-pause-btn';
         playPauseBtn.innerHTML = '⏸️';
         playPauseBtn.style.cssText = `
-            width: 45px;
-            height: 45px;
+            width: ${buttonSize}px;
+            height: ${buttonSize}px;
             border-radius: 50%;
             border: 2px solid rgba(255, 255, 255, 0.3);
             background: rgba(255, 255, 255, 0.1);
             color: white;
-            font-size: 20px;
+            font-size: ${fontSize}px;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -57,17 +65,19 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         const speeds = [0.5, 1, 2, 10];
         const speedLabels = ['0.5x', '1x', '2x', '10x'];
+        const speedPadding = isMobile ? '12px 20px' : '8px 16px';
+        const speedFontSize = isMobile ? 16 : 14;
         speeds.forEach((speed, index) => {
             const speedBtn = document.createElement('button');
             speedBtn.textContent = speedLabels[index];
             speedBtn.dataset.speed = speed;
             speedBtn.style.cssText = `
-                padding: 8px 16px;
+                padding: ${speedPadding};
                 border-radius: 20px;
                 border: 1px solid rgba(255, 255, 255, 0.2);
                 background: rgba(255, 255, 255, 0.05);
                 color: rgba(255, 255, 255, 0.7);
-                font-size: 14px;
+                font-size: ${speedFontSize}px;
                 cursor: pointer;
                 transition: all 0.3s ease;
             `;
@@ -101,13 +111,13 @@ asteroidBtn.id = 'asteroid-toggle-btn';
 asteroidBtn.innerHTML = '☄️';
 
 asteroidBtn.style.cssText = `
-    width: 45px;
-    height: 45px;
+    width: ${buttonSize}px;
+    height: ${buttonSize}px;
     border-radius: 50%;
     border: 2px solid rgba(255,255,255,0.3);
     background: rgba(255,255,255,0.1);
     color: white;
-    font-size: 18px;
+    font-size: ${fontSize}px;
     cursor: pointer;
     display: flex;
     align-items: center;

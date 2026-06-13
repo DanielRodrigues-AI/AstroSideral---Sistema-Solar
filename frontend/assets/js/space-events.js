@@ -233,21 +233,24 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
   function spawnSpaceEvents() {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const multiplier = isMobile ? 2 : 1;
+    
     setInterval(() => {
       if (Math.random() > 0.7) {
         createMeteor();
       }
-    }, 5000);
+    }, 5000 * multiplier);
     setInterval(() => {
       if (Math.random() > 0.8) {
         createComet();
       }
-    }, 12000);
+    }, 12000 * multiplier);
     setInterval(() => {
       if (Math.random() > 0.85) {
         createShootingStar();
       }
-    }, 8000);
+    }, 8000 * multiplier);
     setInterval(() => {
       const eventType = Math.random();
       if (eventType < 0.15) {
@@ -255,7 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (eventType < 0.25) {
         createShootingStar();
       }
-    }, 6000);
+    }, 6000 * multiplier);
   }
   spawnSpaceEvents();
   console.log("🌠 Eventos espaciais inicializados!");

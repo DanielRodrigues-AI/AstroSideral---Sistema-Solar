@@ -90,8 +90,8 @@ body {
     padding: 2rem;
 }
 .sun {
-    width: 80px;
-    height: 80px;
+    width: 65px;
+    height: 65px;
     background: radial-gradient(circle, #ffd700, #ff8c00);
     border-radius: 50%;
     position: absolute;
@@ -103,13 +103,6 @@ body {
     z-index: 10;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.sun:hover {
-    transform: scale(1.1);
-    box-shadow: 
-        0 0 80px #ffd700,
-        0 0 120px #ff8c00,
-        0 0 160px rgba(255, 140, 0, 0.7);
 }
 @keyframes sunPulse {
     0%, 100% { 
@@ -496,37 +489,4 @@ body {
 .solar-system.planet-selected .planet.selected-planet {
     opacity: 1;
     box-shadow: none;
-}
-@media (max-width: 1024px) {
-    .info-panel {
-        width: 320px;
-        right: -320px;
-    }
-}
-@media (max-width: 768px) {
-    .header h1 {
-        font-size: 2rem;
-    }
-    .solar-system {
-        min-height: 400px;
-    }
-    .info-panel {
-        width: 100%;
-        right: -100%;
-    }
-    .planet-name {
-        font-size: 2rem;
-    }
-}
-@media (max-width: 480px) {
-    .header h1 {
-        font-size: 1.5rem;
-        letter-spacing: 0.2em;
-    }
-    .subtitle {
-        font-size: 0.9rem;
-    }
-    .solar-system {
-        min-height: 350px;
-    }
 }
