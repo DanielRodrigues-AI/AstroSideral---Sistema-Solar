@@ -1,0 +1,90 @@
+[
+  {
+    "id": "mercury",
+    "name": "Mercúrio",
+    "type": "rochoso",
+    "size": 0.38,
+    "distance": 57.9,
+    "info": "Planeta mais próximo do Sol, com temperaturas extremas variando de -180°C a 430°C.",
+    "color": "#b5b5b5",
+    "orbitSpeed": 4.1,
+    "orbitRadius": 70
+  },
+  {
+    "id": "venus",
+    "name": "Vênus",
+    "type": "rochoso",
+    "size": 0.95,
+    "distance": 108.2,
+    "info": "O planeta mais quente do sistema solar, com uma atmosfera densa de dióxido de carbono.",
+    "color": "#e6c87a",
+    "orbitSpeed": 1.6,
+    "orbitRadius": 100
+  },
+  {
+    "id": "earth",
+    "name": "Terra",
+    "type": "rochoso",
+    "size": 1.0,
+    "distance": 149.6,
+    "info": "Nosso lar, o único planeta conhecido com vida e água líquida em sua superfície.",
+    "color": "#6b93d6",
+    "orbitSpeed": 1.0,
+    "orbitRadius": 140
+  },
+  {
+    "id": "mars",
+    "name": "Marte",
+    "type": "rochoso",
+    "size": 0.53,
+    "distance": 227.9,
+    "info": "Conhecido como Planeta Vermelho, possui o maior vulcão do sistema solar.",
+    "color": "#c1440e",
+    "orbitSpeed": 0.53,
+    "orbitRadius": 180
+  },
+  {
+    "id": "jupiter",
+    "name": "Júpiter",
+    "type": "Gasoso",
+    "size": 11.2,
+    "distance": 778.5,
+    "info": "O maior planeta do sistema solar, com uma Grande Mancha Vermelha que é uma tempestade gigante.",
+    "color": "#d8ca9d",
+    "orbitSpeed": 0.08,
+    "orbitRadius": 240
+  },
+  {
+    "id": "saturn",
+    "name": "Saturno",
+    "type": "Gasoso",
+    "size": 9.45,
+    "distance": 1434,
+    "info": "Famoso por seus anéis espetaculares feitos de gelo e rocha.",
+    "color": "#f4d59e",
+    "orbitSpeed": 0.05,
+    "orbitRadius": 300
+  },
+  {
+    "id": "uranus",
+    "name": "Urano",
+    "type": "Gasoso",
+    "size": 4.0,
+    "distance": 2871,
+    "info": "Gira de lado, com seu eixo inclinado quase 90 graus em relação ao plano orbital.",
+    "color": "#d1e7e7",
+    "orbitSpeed": 0.01,
+    "orbitRadius": 360
+  },
+  {
+    "id": "neptune",
+    "name": "Netuno",
+    "type": "Gasoso",
+    "size": 3.88,
+    "distance": 4495,
+    "info": "O planeta mais distante do Sol, com ventos que chegam a 2.100 km/h.",
+    "color": "#5b5ddf",
+    "orbitSpeed": 0.006,
+    "orbitRadius": 420
+  }
+]

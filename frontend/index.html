@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstroSideral - Explorador do Sistema Solar</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<!--index.html-->
+<body> 
+    <div class="stars"></div>
+    <header class="header">
+        <h1>AstroSideral</h1>
+        <p class="subtitle">Explorador Interativo do Sistema Solar</p>
+    </header>
+    <main class="main-content">
+        <div class="solar-system">
+            <div class="sun" data-planet="sun"></div>
+            <div class="orbit orbit-mercury"></div>
+            <div class="planet planet-mercury" data-planet="mercury"></div>
+            <div class="orbit orbit-venus"></div>
+            <div class="planet planet-venus" data-planet="venus"></div>
+            <div class="orbit orbit-earth"></div>
+            <div class="planet planet-earth" data-planet="earth"></div>
+            <div class="orbit orbit-mars"></div>
+            <div class="planet planet-mars" data-planet="mars"></div>
+            <div class="orbit orbit-jupiter"></div>
+            <div class="planet planet-jupiter" data-planet="jupiter"></div>
+            <div class="orbit orbit-saturn"></div>
+            <div class="planet planet-saturn" data-planet="saturn"></div>
+            <div class="orbit orbit-uranus"></div>
+            <div class="planet planet-uranus" data-planet="uranus"></div>
+            <div class="orbit orbit-neptune"></div>
+            <div class="planet planet-neptune" data-planet="neptune"></div>
+        </div>
+        <aside class="info-panel" id="infoPanel">
+            <button class="close-btn" id="closePanel">&times;</button>
+            <div class="panel-content">
+                <h2 class="planet-name" id="planetName">Selecione um planeta</h2>
+                <div class="planet-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Tipo:</span>
+                        <span class="detail-value" id="planetType">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Tamanho relativo:</span>
+                        <span class="detail-value" id="planetSize">-</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Distância do Sol:</span>
+                        <span class="detail-value" id="planetDistance">-</span>
+                    </div>
+                </div>
+                <p class="planet-info" id="planetInfo">
+                    Clique em um planeta para ver suas informações detalhadas.
+                </p>
+                <div class="planet-visual" id="planetVisual"></div>
+            </div>
+        </aside>
+    </main>
+    <footer class="footer">
+        <p>AstroSideral © 2026 - Explorador do Sistema Solar</p>
+    </footer>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/asteroid-control.js"></script>
+    <script src="assets/js/time-control.js"></script>
+    <script src="assets/js/space-events.js"></script>
+    <script src="assets/js/camera-control.js"></script>
+</body>
+</html>
