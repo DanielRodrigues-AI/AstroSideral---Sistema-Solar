@@ -1,4 +1,6 @@
-/*responsive.css*/
+html {
+    font-size: clamp(14px, 1.8vw, 16px);
+}/*responsive.css*/
 
 @media (max-width: 1024px) {
   .info-panel {
@@ -16,24 +18,43 @@
     right: -100%;
     top: auto;
     bottom: 0;
-    height: 60vh;
+    font-size: 0.9rem;
+    height: 45vh; /* REDUÇÃO PRINCIPAL */
+    max-height: 420px;
+
     border-left: none;
     border-top: 1px solid var(--border-color);
-    border-radius: 20px 20px 0 0;
+    border-radius: 18px 18px 0 0;
+
     transform: translateY(100%);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.35s ease;
   }
   .info-panel.active {
     right: 0;
     transform: translateY(0);
   }
   .planet-name {
-    font-size: 2rem;
+    font-size: 1.3rem;
   }
-  #time-control {
-    bottom: 20px;
-    padding-bottom: env(safe-area-inset-bottom, 20px);
+
+  .planet-info {
+    font-size: 0.8rem;
+    line-height: 1.4;
   }
+  .panel-content {
+    padding-bottom: 60px;
+  }
+  .detail-label,
+  .detail-value {
+    font-size: 0.75rem;
+  }
+#time-control {
+  bottom: 12px;
+  padding: 6px 10px;
+  gap: 6px;
+  border-radius: 18px;
+  transform: scale(0.9);
+}
 }
 @media (max-width: 480px) {
   .header h1 {
@@ -57,39 +78,94 @@
   }
 
   /* REESPAÇAMENTO CRÍTICO DAS ÓRBITAS (Previnem a colisão visual) */
-  .orbit-mercury { width: 55px; height: 55px; }
-  .orbit-venus   { width: 85px; height: 85px; }
-  .orbit-earth   { width: 120px; height: 120px; }
-  .orbit-mars    { width: 155px; height: 155px; }
-  .orbit-jupiter { width: 200px; height: 200px; }
-  .orbit-saturn  { width: 250px; height: 250px; }
-  .orbit-uranus  { width: 300px; height: 300px; }
-  .orbit-neptune { width: 350px; height: 350px; }
+  .orbit-mercury {
+    width: 55px;
+    height: 55px;
+  }
+  .orbit-venus {
+    width: 85px;
+    height: 85px;
+  }
+  .orbit-earth {
+    width: 120px;
+    height: 120px;
+  }
+  .orbit-mars {
+    width: 155px;
+    height: 155px;
+  }
+  .orbit-jupiter {
+    width: 200px;
+    height: 200px;
+  }
+  .orbit-saturn {
+    width: 250px;
+    height: 250px;
+  }
+  .orbit-uranus {
+    width: 300px;
+    height: 300px;
+  }
+  .orbit-neptune {
+    width: 350px;
+    height: 350px;
+  }
 
   /* REDUÇÃO DOS COLOÇOS (Evita que o tamanho do planeta invada a órbita vizinha) */
-  .planet-mercury { width: 8px; height: 8px; }
-  .planet-venus   { width: 11px; height: 11px; }
-  .planet-earth   { width: 12px; height: 12px; }
-  .planet-mars    { width: 10px; height: 10px; }
-  .planet-jupiter { width: 18px; height: 18px; } /* Reduzido de 28px */
-  .planet-saturn  { width: 16px; height: 16px; } /* Reduzido de 24px */
-  .planet-uranus  { width: 13px; height: 13px; }
-  .planet-neptune { width: 12px; height: 12px; }
+  .planet-mercury {
+    width: 8px;
+    height: 8px;
+  }
+  .planet-venus {
+    width: 11px;
+    height: 11px;
+  }
+  .planet-earth {
+    width: 12px;
+    height: 12px;
+  }
+  .planet-mars {
+    width: 10px;
+    height: 10px;
+  }
+  .planet-jupiter {
+    width: 18px;
+    height: 18px;
+  } /* Reduzido de 28px */
+  .planet-saturn {
+    width: 16px;
+    height: 16px;
+  } /* Reduzido de 24px */
+  .planet-uranus {
+    width: 13px;
+    height: 13px;
+  }
+  .planet-neptune {
+    width: 12px;
+    height: 12px;
+  }
+#time-control {
+  bottom: 8px;
+  padding: 5px 8px;
+  gap: 5px;
+  border-radius: 16px;
+  transform: scale(0.8);
+}
 
-  /* Ajuste fino nos botões da Hotbar para Mobile */
-  #time-control {
-    bottom: 10px; /* Mais colado na barra inferior */
-    padding: 8px 15px;
-    border-radius: 25px;
-    gap: 8px;
-  }
-  
-  #time-control button {
-    font-size: 0.75rem !important;
-    padding: 6px 10px !important;
-  }
-  
-  #play-pause-btn, #asteroid-toggle-btn {
+#time-control button {
+  font-size: 0.7rem !important;
+  padding: 5px 8px !important;
+}
+
+#play-pause-btn,
+#asteroid-toggle-btn {
+  width: 32px !important;
+  height: 32px !important;
+  font-size: 14px !important;
+}
+
+  #play-pause-btn,
+  #asteroid-toggle-btn {
     width: 36px !important;
     height: 36px !important;
     font-size: 16px !important;
